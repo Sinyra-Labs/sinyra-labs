@@ -20,3 +20,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - HTML stripping: tags removed, entities unescaped, whitespace collapsed, max 600 chars
 - Unit tests: 7 tests across happy-path, error handling, HTML stripping
 - VCR cassette fixture for fetch_feed
+- Storage layer (P3): SQLAlchemy SeenItem model, SeenStore (is_seen/remember/TTL prune)
+- Alembic migration setup with initial seen_items table (F3 Postgres-ready)
+- normalize/dedup.py: compute_hash (md5), dedup() with recency + seen filtering
+- Unit tests for dedup: seen, fresh, too_old cases (tests/unit/test_dedup.py)
+- alembic.ini at repo root for CLI migrations
+- DB_PATH added to .env.example
