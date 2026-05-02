@@ -16,6 +16,14 @@ class RawItem(BaseModel):
     hint_company: str | None = None  # optional company hint from feeds.yaml
 
 
+class ClassificationResult(BaseModel):
+    """Direct LLM output from the classifier (parsed via model_validate_json)."""
+
+    is_feature: bool
+    feature_type: str = ""
+    confidence: float = Field(default=50.0, ge=0, le=100)
+
+
 class ClassifiedFeature(BaseModel):
     """RawItem enriched with classifier output."""
 

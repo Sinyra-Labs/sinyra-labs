@@ -8,3 +8,23 @@
 {"title": "Will GPT-5 be released in 2025? Here's what we know", "is_feature": false, "feature_type": "speculation", "expected_impact": 0}
 {"title": "Perplexity launches Pro Search with real-time web access", "is_feature": true, "feature_type": "new_product", "expected_impact": 72}
 {"title": "AI startup funding hits record $20B in Q3 2024", "is_feature": false, "feature_type": "investment_funding_news", "expected_impact": 0}
+{"title": "Anthropic releases Claude 3.5 Sonnet with improved coding ability", "is_feature": true, "feature_type": "new_model", "expected_impact": 85}
+{"title": "OpenAI launches o1 reasoning model for complex multi-step problems", "is_feature": true, "feature_type": "new_model", "expected_impact": 95}
+{"title": "GitHub Copilot adds terminal integration and multi-file context", "is_feature": true, "feature_type": "new_feature", "expected_impact": 68}
+{"title": "Microsoft integrates GPT-4o into Office 365 Copilot", "is_feature": true, "feature_type": "new_feature", "expected_impact": 75}
+{"title": "xAI releases Grok 2 with image generation via Aurora model", "is_feature": true, "feature_type": "new_model", "expected_impact": 72}
+{"title": "Cohere launches Command R+ with 128k context for enterprise RAG", "is_feature": true, "feature_type": "new_model", "expected_impact": 65}
+{"title": "Vercel AI SDK 3.0 adds streaming structured outputs and tool calling", "is_feature": true, "feature_type": "api_update", "expected_impact": 55}
+{"title": "Stability AI releases SDXL Turbo for real-time image generation", "is_feature": true, "feature_type": "new_model", "expected_impact": 70}
+{"title": "AWS Bedrock adds Anthropic Claude 3 family with cross-region inference", "is_feature": true, "feature_type": "new_feature", "expected_impact": 58}
+{"title": "Hugging Face releases Idefics 2 multimodal VLM under Apache 2.0", "is_feature": true, "feature_type": "research_release", "expected_impact": 60}
+{"title": "Google invests $100M in AI safety research initiatives", "is_feature": false, "feature_type": "investment_funding_news", "expected_impact": 0}
+{"title": "Top 15 AI productivity tools every developer should use in 2025", "is_feature": false, "feature_type": "tier_list", "expected_impact": 0}
+{"title": "Could Grok beat ChatGPT in the long run? Our analysis", "is_feature": false, "feature_type": "speculation", "expected_impact": 0}
+{"title": "Ilya Sutskever departs OpenAI to found new AI safety startup", "is_feature": false, "feature_type": "leadership_change", "expected_impact": 0}
+{"title": "AI market projected to reach $1 trillion by 2030, report finds", "is_feature": false, "feature_type": "general_news", "expected_impact": 0}
+{"title": "Why the AI bubble may be about to burst: 7 warning signs", "is_feature": false, "feature_type": "opinion_editorial", "expected_impact": 0}
+{"title": "Scale AI raises $1B Series F at $13.8B valuation", "is_feature": false, "feature_type": "investment_funding_news", "expected_impact": 0}
+{"title": "OpenAI vs Google: who will win the AI race in 2025?", "is_feature": false, "feature_type": "speculation", "expected_impact": 0}
+{"title": "Former Google Brain leads join new stealth AI startup", "is_feature": false, "feature_type": "leadership_change", "expected_impact": 0}
+{"title": "The 10 most important AI research papers of 2024", "is_feature": false, "feature_type": "tier_list", "expected_impact": 0}

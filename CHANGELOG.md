@@ -26,3 +26,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Unit tests for dedup: seen, fresh, too_old cases (tests/unit/test_dedup.py)
 - alembic.ini at repo root for CLI migrations
 - DB_PATH added to .env.example
+- Intelligence layer (P4): openai_client.py (singleton, retry, token tracking, structlog)
+- classifier.py: classify(RawItem) -> ClassifiedFeature using classify.v1.md prompt
+- impact_scorer.py: score(ClassifiedFeature) -> ImpactResult using impact.v1.md prompt
+- classify.v1.md + impact.v1.md: full prompt content with positive/negative rules
+- ClassificationResult pydantic model added to schema.py (LLM JSON parse target)
+- golden_set.jsonl extended to 30 items (15 positive / 15 negative, balanced)
+- tests/eval/test_classifier.py: precision/recall report (skips without OPENAI_API_KEY)
