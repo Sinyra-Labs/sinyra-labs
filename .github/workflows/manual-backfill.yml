@@ -1,0 +1,55 @@
+name: Sinyra · Manual Backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      lookback_hours:
+        description: 'Geriye dönük tarama saati (max önerilen: 168 = 7 gün)'
+        required: true
+        default: '168'
+      dry_run:
+        description: 'Mail gönderme, sadece logla'
+        type: boolean
+        default: true
+
+concurrency:
+  group: backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install deps
+        run: |
+          pip install uv
+          uv pip install --system -r requirements.txt
+
+      - name: Run backfill
+        env:
+          OPENAI_API_KEY:     ${{ secrets.OPENAI_API_KEY }}
+          GMAIL_ADDRESS:      ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_FROM_NAME:    ${{ secrets.EMAIL_FROM_NAME }}
+          EMAIL_TO:           ${{ secrets.EMAIL_TO }}
+          DRY_RUN:            ${{ github.event.inputs.dry_run }}
+          LOOKBACK_HOURS:     ${{ github.event.inputs.lookback_hours }}
+        run: python -m sinyra.run
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backfill-${{ github.run_id }}
+          path: data/output/
+          retention-days: 7

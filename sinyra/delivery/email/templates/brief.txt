@@ -1,0 +1,24 @@
+AI Ürün Radarı — {{ brief.date_tr }}
+========================================
+
+{{ brief.summary_tr }}
+
+TOP FEATURES
+------------
+{% for item in brief.top_features %}
+[{{ item.impact_score | int }}] {{ item.feature.raw.title }}
+  {{ item.feature.raw.link }}
+{% endfor %}
+
+TRENDLER
+--------
+{% for trend in brief.trends %}
+• {{ trend }}
+{% endfor %}
+
+ÖNGÖRÜ
+------
+{{ brief.insight }}
+
+--
+Bu bülten Sinyra Labs tarafından otomatik üretilmiştir.

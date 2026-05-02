@@ -1,0 +1,41 @@
+# RSS/Atom feed sources and Google News queries
+# Format:
+#   - name: Human-readable source name
+#     url: Feed URL
+#     type: rss | gnews
+#     company: (optional) associated company slug
+
+feeds:
+  # --- Major AI labs ---
+  - name: OpenAI Blog
+    url: https://openai.com/blog/rss/
+    type: rss
+    company: openai
+
+  - name: Anthropic News
+    url: https://www.anthropic.com/news/rss
+    type: rss
+    company: anthropic
+
+  - name: Google DeepMind Blog
+    url: https://deepmind.google/blog/rss/
+    type: rss
+    company: google-deepmind
+
+  # --- Tech news ---
+  - name: TechCrunch AI
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    type: rss
+
+  - name: The Verge AI
+    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+    type: rss
+
+  # --- Google News queries ---
+  - name: GNews · AI product launch
+    url: AI product launch site:techcrunch.com OR site:venturebeat.com
+    type: gnews
+
+  - name: GNews · LLM release
+    url: large language model release 2024
+    type: gnews
