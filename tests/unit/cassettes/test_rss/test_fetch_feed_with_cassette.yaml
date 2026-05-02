@@ -1,0 +1,38 @@
+interactions:
+- request:
+    body: null
+    headers:
+      user-agent:
+      - Sinyra-Labs/0.1 (+https://github.com/sinyra-labs/sinyra-labs)
+    method: GET
+    uri: https://example-feed.test/rss
+  response:
+    body:
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0">
+          <channel>
+            <title>Test AI Feed</title>
+            <link>https://example-feed.test</link>
+            <description>Unit test fixture feed for Sinyra Labs</description>
+            <item>
+              <title>OpenAI launches GPT-5</title>
+              <link>https://example-feed.test/gpt5</link>
+              <description>&lt;p&gt;OpenAI today announced GPT-5 with improved reasoning capabilities.&lt;/p&gt;</description>
+              <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
+            </item>
+            <item>
+              <title>Anthropic releases Claude 4</title>
+              <link>https://example-feed.test/claude4</link>
+              <description>Anthropic released Claude 4 with extended context and improved coding.</description>
+              <pubDate>Mon, 15 Jan 2024 11:00:00 +0000</pubDate>
+            </item>
+          </channel>
+        </rss>
+    headers:
+      content-type:
+      - application/rss+xml; charset=utf-8
+    status:
+      code: 200
+      message: OK
+version: 1

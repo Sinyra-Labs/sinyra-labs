@@ -13,6 +13,8 @@ dependencies = [
     "sqlalchemy>=2.0",
     "alembic>=1.13",
     "pydantic>=2.7",
+    "structlog>=24.1",
+    "PyYAML>=6.0",
 ]
 
 [build-system]
@@ -27,6 +29,7 @@ dev-dependencies = [
     "mypy>=1.10",
     "ruff>=0.5",
     "types-Jinja2",
+    "types-PyYAML",
 ]
 
 [tool.ruff]

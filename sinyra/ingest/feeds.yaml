@@ -1,12 +1,13 @@
 # RSS/Atom feed sources and Google News queries
-# Format:
-#   - name: Human-readable source name
-#     url: Feed URL
-#     type: rss | gnews
-#     company: (optional) associated company slug
+# Fields:
+#   name     : human-readable label (used as source_name on RawItem)
+#   url      : feed URL (rss/atom only)
+#   query    : search query string (gnews only)
+#   type     : rss | gnews
+#   company  : (optional) company slug → stored as hint_company on RawItem
 
 feeds:
-  # --- Major AI labs ---
+  # ── Major AI labs ──────────────────────────────────────────────────────────
   - name: OpenAI Blog
     url: https://openai.com/blog/rss/
     type: rss
@@ -22,7 +23,17 @@ feeds:
     type: rss
     company: google-deepmind
 
-  # --- Tech news ---
+  - name: Meta AI Blog
+    url: https://ai.meta.com/blog/feed/
+    type: rss
+    company: meta
+
+  - name: Mistral AI Blog
+    url: https://mistral.ai/feed.xml
+    type: rss
+    company: mistral
+
+  # ── Tech news ───────────────────────────────────────────────────────────────
   - name: TechCrunch AI
     url: https://techcrunch.com/category/artificial-intelligence/feed/
     type: rss
@@ -31,11 +42,24 @@ feeds:
     url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
     type: rss
 
-  # --- Google News queries ---
+  - name: VentureBeat AI
+    url: https://venturebeat.com/category/ai/feed/
+    type: rss
+
+  - name: Ars Technica AI
+    url: https://feeds.arstechnica.com/arstechnica/technology-lab
+    type: rss
+
+  # ── Research ────────────────────────────────────────────────────────────────
+  - name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+    type: rss
+
+  # ── Google News queries ─────────────────────────────────────────────────────
   - name: GNews · AI product launch
-    url: AI product launch site:techcrunch.com OR site:venturebeat.com
+    query: AI product launch new feature model
     type: gnews
 
-  - name: GNews · LLM release
-    url: large language model release 2024
+  - name: GNews · open source LLM
+    query: open source large language model release
     type: gnews
