@@ -3,9 +3,10 @@
 import hashlib
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from typing import Any, cast
 
 import structlog
-from sqlalchemy import create_engine, delete
+from sqlalchemy import CursorResult, create_engine, delete
 from sqlalchemy.orm import Session
 from sqlalchemy.pool import StaticPool
 
@@ -53,9 +54,10 @@ class SeenStore:
     def _prune(self) -> None:
         cutoff = datetime.now(UTC) - timedelta(days=TTL_DAYS)
         with Session(self._engine) as session:
-            deleted = session.execute(
+            result = session.execute(
                 delete(SeenItem).where(SeenItem.last_seen_at < cutoff)
-            ).rowcount
+            )
+            deleted = cast(CursorResult[Any], result).rowcount or 0
             session.commit()
         if deleted:
             log.info("seen_store.pruned", count=deleted, ttl_days=TTL_DAYS)
