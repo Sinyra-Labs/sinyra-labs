@@ -7,6 +7,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- `classify.v2.md`: new classifier prompt with negative-first evaluation order
+  - Expanded investment keywords: "invests", "investment", "Series A-F", "seed round", "backed by"
+  - Explicit clarification: "research investment ≠ research release"
+  - Hybrid article rule: funding headline + product mention → FALSE
+  - Tier list title signals: "The N most...", "every developer should"
+  - Availability language required for TRUE: "launches", "releases", "now available"
+  - Expected to eliminate ~12% FP rate on investment/funding/valuation items
+- `docs/prompt-evals/classify-v2.md`: v1 vs v2 eval comparison (golden set analysis)
+- `CLASSIFY_PROMPT_VERSION` default changed to `v2` in config; v1 retained for rollback
+
 ### Fixed
 - `feeds.yaml`: 5 broken feed URLs corrected
   - OpenAI: `/blog/rss/` (403) → `/news/rss.xml` (site yeniden tasarım sonrası taşındı)

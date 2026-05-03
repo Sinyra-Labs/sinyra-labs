@@ -26,5 +26,5 @@ EMAIL_TO: list[str] = [
 EMAIL_PROVIDER: str = os.environ.get("EMAIL_PROVIDER", "gmail_smtp")
 
 # --- Active prompt versions ---
-CLASSIFY_PROMPT_VERSION: str = os.environ.get("CLASSIFY_PROMPT_VERSION", "v1")
+CLASSIFY_PROMPT_VERSION: str = os.environ.get("CLASSIFY_PROMPT_VERSION", "v2")
 IMPACT_PROMPT_VERSION: str = os.environ.get("IMPACT_PROMPT_VERSION", "v2")
