@@ -28,4 +28,4 @@ class GmailSmtpProvider:
             logger.info("email.sent to=%s", to)
         except smtplib.SMTPException as exc:
             logger.error("email.failed to=%s error=%s", to, exc)
-            # do NOT re-raise — allow pipeline to continue to next recipient
+            raise  # send_brief handles per-recipient counting; re-raise so stats are correct
