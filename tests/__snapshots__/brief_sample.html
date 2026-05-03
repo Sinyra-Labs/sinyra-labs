@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>{{ brief.date_tr }} — AI Ürün Radarı</title>
+  <title>3 Mayıs 2026 — AI Ürün Radarı</title>
 </head>
 <body style="margin:0;padding:0;background:#f1f5f9;">
 
@@ -11,7 +11,6 @@
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
        style="max-width:640px;margin:0 auto;background:#f1f5f9;">
 
-  {# ── HERO ── #}
   <tr><td style="padding:0;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
            style="background:#0b1120;border-radius:14px 14px 0 0;">
@@ -22,46 +21,53 @@
             🧠 Günlük Brifing
           </div>
           <div style="color:#cbd5e1;font-size:13px;margin-top:4px;">
-            {{ brief.day_name }}, {{ brief.date_tr }} · {{ brief.time_str }}
+            Pazar, 3 Mayıs 2026 · 18:00
           </div>
           <div style="color:#e2e8f0;font-size:14px;line-height:1.6;margin-top:16px;
                       border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">
-            {{ brief.summary_tr }}
+            Bugün iki büyük hamle öne çıktı.
           </div>
         </div>
       </td></tr>
     </table>
   </td></tr>
 
-  {# ── STATS STRIP ── #}
   <tr><td style="padding:0;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
            style="background:#1e293b;border-radius:0;">
       <tr>
-        {% macro stat_box(value, label) %}
-        <td width="33.33%" style="padding:14px 10px;text-align:center;
+                <td width="33.33%" style="padding:14px 10px;text-align:center;
              border-right:1px solid rgba(255,255,255,0.08);
              font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
-          <div style="color:#ffffff;font-size:24px;font-weight:700;line-height:1;">{{ value }}</div>
+          <div style="color:#ffffff;font-size:24px;font-weight:700;line-height:1;">2</div>
           <div style="color:#94a3b8;font-size:10px;letter-spacing:1.5px;font-weight:600;
-                      text-transform:uppercase;margin-top:4px;">{{ label }}</div>
+                      text-transform:uppercase;margin-top:4px;">Ürün / Özellik</div>
         </td>
-        {% endmacro %}
-        {{ stat_box(brief.stats.total_features, "Ürün / Özellik") }}
-        {{ stat_box(brief.stats.unique_companies, "Şirket") }}
-        {{ stat_box(brief.stats.avg_impact if brief.stats.avg_impact else "–", "Ort. Etki") }}
+
+                <td width="33.33%" style="padding:14px 10px;text-align:center;
+             border-right:1px solid rgba(255,255,255,0.08);
+             font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
+          <div style="color:#ffffff;font-size:24px;font-weight:700;line-height:1;">2</div>
+          <div style="color:#94a3b8;font-size:10px;letter-spacing:1.5px;font-weight:600;
+                      text-transform:uppercase;margin-top:4px;">Şirket</div>
+        </td>
+
+                <td width="33.33%" style="padding:14px 10px;text-align:center;
+             border-right:1px solid rgba(255,255,255,0.08);
+             font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
+          <div style="color:#ffffff;font-size:24px;font-weight:700;line-height:1;">86</div>
+          <div style="color:#94a3b8;font-size:10px;letter-spacing:1.5px;font-weight:600;
+                      text-transform:uppercase;margin-top:4px;">Ort. Etki</div>
+        </td>
+
       </tr>
     </table>
   </td></tr>
 
-  {# ── SPOTLIGHT (top item) ── #}
-  {% if brief.top_features %}
-  {% set top = brief.top_features[0] %}
-  {% set color = top.impact_score | impact_color %}
   <tr><td style="padding:20px 20px 0 20px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
            style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
-      <tr><td style="background:{{ color }};padding:10px 16px;">
+      <tr><td style="background:#c2410c;padding:10px 16px;">
         <div style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
                     color:#ffffff;font-size:11px;font-weight:700;letter-spacing:1.5px;">
           ⭐ GÜNÜN ÖNE ÇIKAN GELİŞMESİ
@@ -69,105 +75,125 @@
       </td></tr>
       <tr><td style="padding:18px 20px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
         <div style="color:#64748b;font-size:12px;font-weight:600;">
-          {{ top.feature.raw.hint_company | company_emoji }}&nbsp;&nbsp;{{ (top.feature.raw.hint_company or "") | upper }}
+          🔵&nbsp;&nbsp;GOOGLE
         </div>
         <div style="color:#0f172a;font-size:19px;font-weight:700;margin-top:4px;line-height:1.3;">
-          {{ top.feature.raw.title }}
+          Google launches Gemini 3.1 Flash-Lite
         </div>
         <div style="color:#334155;font-size:14px;line-height:1.6;margin-top:10px;">
-          {{ top.rationale }}
+          Düşük maliyetli hızlı modeller pazarında doğrudan rekabet.
         </div>
         <div style="margin-top:14px;">
-          <span style="display:inline-block;background:{{ top.impact_score | impact_bg }};
-                color:{{ color }};font-size:12px;font-weight:700;
-                padding:4px 10px;border-radius:20px;border:1px solid {{ color }}33;">
-            Etki: {{ top.impact_score | int }}/100 · {{ top.impact_score | impact_label }}
+          <span style="display:inline-block;background:#fff7ed;
+                color:#c2410c;font-size:12px;font-weight:700;
+                padding:4px 10px;border-radius:20px;border:1px solid #c2410c33;">
+            Etki: 82/100 · Yüksek
           </span>
           &nbsp;&nbsp;
-          <a href="{{ top.feature.raw.link }}"
+          <a href="https://blog.google/technology/ai/gemini-3-1"
              style="display:inline-block;font-size:12px;color:#2563eb;
                     text-decoration:none;font-weight:600;">Kaynağa git →</a>
         </div>
       </td></tr>
     </table>
   </td></tr>
-  {% endif %}
 
-  {# ── EMPTY STATE ── #}
-  {% if not brief.top_features %}
-  <tr><td style="padding:22px 20px 0 20px;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-           style="background:#ffffff;border:1px dashed #cbd5e1;border-radius:12px;">
-      <tr><td style="padding:28px 20px;text-align:center;
-                     font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
-        <div style="font-size:36px;margin-bottom:8px;">🌤️</div>
-        <div style="color:#475569;font-size:14px;font-weight:600;">Bugün sakin bir gün</div>
-        <div style="color:#94a3b8;font-size:12px;margin-top:4px;">
-          Son 72 saatte eşiği geçen kayda değer bir lansman yok.
-        </div>
-      </td></tr>
-    </table>
-  </td></tr>
-  {% endif %}
 
-  {# ── COMPANY SECTIONS (only if > 1 feature) ── #}
-  {% if brief.top_features | length > 1 %}
-  {% for company, items in brief.by_company.items() %}
   <tr><td style="padding:22px 20px 0 20px;">
     <div style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
                 font-size:13px;font-weight:700;color:#475569;letter-spacing:0.5px;
                 text-transform:uppercase;border-bottom:2px solid #e2e8f0;
                 padding-bottom:6px;margin-bottom:10px;">
-      {{ company | company_emoji }}&nbsp;&nbsp;{{ company }}
-      <span style="color:#94a3b8;font-weight:500;">({{ items | length }})</span>
+      🟢&nbsp;&nbsp;OpenAI
+      <span style="color:#94a3b8;font-weight:500;">(1)</span>
     </div>
-    {% for f in items %}
-    {% set color = f.impact_score | impact_color %}
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-           style="background:#ffffff;border:1px solid #e2e8f0;border-left:3px solid {{ color }};
+           style="background:#ffffff;border:1px solid #e2e8f0;border-left:3px solid #b91c1c;
                   border-radius:8px;margin-bottom:10px;">
       <tr><td style="padding:14px 16px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td style="vertical-align:top;padding-right:12px;">
               <div style="color:#0f172a;font-size:15px;font-weight:600;line-height:1.35;">
-                {{ f.feature.raw.title }}
+                OpenAI introduces GPT-Rosalind
               </div>
             </td>
             <td align="right" style="vertical-align:top;white-space:nowrap;">
-              <div style="display:inline-block;background:{{ f.impact_score | impact_bg }};
-                    color:{{ color }};font-size:11px;font-weight:700;
-                    padding:3px 9px;border-radius:20px;border:1px solid {{ color }}33;">
-                {{ f.impact_score | int }} / 100
+              <div style="display:inline-block;background:#fef2f2;
+                    color:#b91c1c;font-size:11px;font-weight:700;
+                    padding:3px 9px;border-radius:20px;border:1px solid #b91c1c33;">
+                91 / 100
               </div>
             </td>
           </tr>
           <tr><td colspan="2" style="padding-top:8px;color:#475569;font-size:13px;line-height:1.55;">
-            {{ (f.rationale or "")[:240] }}
+            Alan-spesifik frontier modelinin yeni bir sektörü hedeflemesi paradigmatik.
           </td></tr>
           <tr><td colspan="2" style="padding-top:10px;">
             <span style="display:inline-block;font-size:11px;color:#64748b;
                          background:#f1f5f9;padding:2px 8px;border-radius:4px;margin-right:6px;">
-              {{ f.feature.feature_type | translate_type }}
+              Yeni özellik
             </span>
             <span style="display:inline-block;font-size:11px;color:#94a3b8;">
-              · {{ f.feature.raw.source_name }}
+              · OpenAI News
             </span>
             <span style="float:right;">
-              <a href="{{ f.feature.raw.link }}"
+              <a href="https://openai.com/index/gpt-rosalind"
                  style="font-size:12px;color:#2563eb;text-decoration:none;font-weight:600;">Kaynak →</a>
             </span>
           </td></tr>
         </table>
       </td></tr>
     </table>
-    {% endfor %}
   </td></tr>
-  {% endfor %}
-  {% endif %}
+  <tr><td style="padding:22px 20px 0 20px;">
+    <div style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+                font-size:13px;font-weight:700;color:#475569;letter-spacing:0.5px;
+                text-transform:uppercase;border-bottom:2px solid #e2e8f0;
+                padding-bottom:6px;margin-bottom:10px;">
+      🔵&nbsp;&nbsp;Google
+      <span style="color:#94a3b8;font-weight:500;">(1)</span>
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+           style="background:#ffffff;border:1px solid #e2e8f0;border-left:3px solid #c2410c;
+                  border-radius:8px;margin-bottom:10px;">
+      <tr><td style="padding:14px 16px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td style="vertical-align:top;padding-right:12px;">
+              <div style="color:#0f172a;font-size:15px;font-weight:600;line-height:1.35;">
+                Google launches Gemini 3.1 Flash-Lite
+              </div>
+            </td>
+            <td align="right" style="vertical-align:top;white-space:nowrap;">
+              <div style="display:inline-block;background:#fff7ed;
+                    color:#c2410c;font-size:11px;font-weight:700;
+                    padding:3px 9px;border-radius:20px;border:1px solid #c2410c33;">
+                82 / 100
+              </div>
+            </td>
+          </tr>
+          <tr><td colspan="2" style="padding-top:8px;color:#475569;font-size:13px;line-height:1.55;">
+            Düşük maliyetli hızlı modeller pazarında doğrudan rekabet.
+          </td></tr>
+          <tr><td colspan="2" style="padding-top:10px;">
+            <span style="display:inline-block;font-size:11px;color:#64748b;
+                         background:#f1f5f9;padding:2px 8px;border-radius:4px;margin-right:6px;">
+              Yeni özellik
+            </span>
+            <span style="display:inline-block;font-size:11px;color:#94a3b8;">
+              · Google AI Blog
+            </span>
+            <span style="float:right;">
+              <a href="https://blog.google/technology/ai/gemini-3-1"
+                 style="font-size:12px;color:#2563eb;text-decoration:none;font-weight:600;">Kaynak →</a>
+            </span>
+          </td></tr>
+        </table>
+      </td></tr>
+    </table>
+  </td></tr>
 
-  {# ── TRENDS ── #}
-  {% if brief.trends %}
   <tr><td style="padding:22px 20px 0 20px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
            style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;">
@@ -176,24 +202,27 @@
           📈 TRENDLER
         </div>
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-          {% for trend in brief.trends %}
           <tr>
             <td style="padding:8px 0;vertical-align:top;width:24px;">
               <div style="width:6px;height:6px;background:#2563eb;border-radius:50%;margin-top:8px;"></div>
             </td>
             <td style="padding:8px 0;color:#334155;font-size:14px;line-height:1.55;">
-              {{ trend }}
+              Hızlı modeller yaygınlaşıyor.
             </td>
           </tr>
-          {% endfor %}
+          <tr>
+            <td style="padding:8px 0;vertical-align:top;width:24px;">
+              <div style="width:6px;height:6px;background:#2563eb;border-radius:50%;margin-top:8px;"></div>
+            </td>
+            <td style="padding:8px 0;color:#334155;font-size:14px;line-height:1.55;">
+              Rekabet sertleşiyor.
+            </td>
+          </tr>
         </table>
       </td></tr>
     </table>
   </td></tr>
-  {% endif %}
 
-  {# ── STRATEGIC INSIGHT ── #}
-  {% if brief.insight %}
   <tr><td style="padding:16px 20px 0 20px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
            style="background:#1e293b;border-radius:12px;">
@@ -202,14 +231,12 @@
           🧠 STRATEJİK İÇGÖRÜ
         </div>
         <div style="color:#f1f5f9;font-size:14px;line-height:1.6;">
-          {{ brief.insight }}
+          Önümüzdeki çeyrekte kazananlar alan-spesifik sağlayıcılar olacak.
         </div>
       </td></tr>
     </table>
   </td></tr>
-  {% endif %}
 
-  {# ── SHARE CARD ── #}
   <tr><td style="padding:22px 20px 0 20px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
            style="background:#0b1120;border-radius:12px;overflow:hidden;">
@@ -237,7 +264,6 @@
     </table>
   </td></tr>
 
-  {# ── CONTACT CARD ── #}
   <tr><td style="padding:12px 20px 0 20px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
            style="background:#ffffff;border:1px solid #e2e8f0;border-left:3px solid #2563eb;
@@ -258,7 +284,6 @@
     </table>
   </td></tr>
 
-  {# ── FOOTER META ── #}
   <tr><td style="padding:18px 20px 24px 20px;text-align:center;
                  font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
     <div style="color:#94a3b8;font-size:11px;line-height:1.6;">

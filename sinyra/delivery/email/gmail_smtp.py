@@ -14,9 +14,18 @@ class GmailSmtpProvider:
     """Sends email via Gmail SMTP on port 465 (SSL) with App Password auth."""
 
     def send(self, to: str, subject: str, html: str, text: str) -> None:
-        # TODO(P5): implement full send logic
-        # - smtplib.SMTP_SSL("smtp.gmail.com", 465)
-        # - login with config.GMAIL_ADDRESS + config.GMAIL_APP_PASSWORD
-        # - MIMEMultipart("alternative") with text + html parts
-        # - on SMTPException: log error, do NOT re-raise (continue to next recipient)
-        raise NotImplementedError
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = f"{config.EMAIL_FROM_NAME} <{config.GMAIL_ADDRESS}>"
+        msg["To"] = to
+        msg.attach(MIMEText(text, "plain", "utf-8"))
+        msg.attach(MIMEText(html, "html", "utf-8"))
+
+        try:
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                server.login(config.GMAIL_ADDRESS, config.GMAIL_APP_PASSWORD)
+                server.sendmail(config.GMAIL_ADDRESS, to, msg.as_bytes())
+            logger.info("email.sent to=%s", to)
+        except smtplib.SMTPException as exc:
+            logger.error("email.failed to=%s error=%s", to, exc)
+            # do NOT re-raise — allow pipeline to continue to next recipient

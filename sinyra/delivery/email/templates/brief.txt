@@ -1,24 +1,42 @@
-AI Ürün Radarı — {{ brief.date_tr }}
-========================================
+AI ÜRÜN RADARI — {{ brief.date_tr }}
+==================================================
 
 {{ brief.summary_tr }}
 
-TOP FEATURES
-------------
-{% for item in brief.top_features %}
-[{{ item.impact_score | int }}] {{ item.feature.raw.title }}
-  {{ item.feature.raw.link }}
-{% endfor %}
+{% if not brief.top_features %}
+Bugün kayda değer bir lansman tespit edilmedi.
 
-TRENDLER
---------
+{% else %}
+{% for company, items in brief.by_company.items() %}
+🏢 {{ company | upper }}
+----------------------------------------
+{% for f in items %}
+• {{ f.feature.raw.title }} [{{ f.impact_score | int }}/100]
+  {{ f.rationale }}
+  {{ f.feature.raw.link }}
+
+{% endfor %}
+{% endfor %}
+{% endif %}
+{% if brief.trends %}
+
+📈 TRENDLER
+----------------------------------------
 {% for trend in brief.trends %}
 • {{ trend }}
 {% endfor %}
+{% endif %}
+{% if brief.insight %}
 
-ÖNGÖRÜ
-------
+🧠 STRATEJİK İÇGÖRÜ
+----------------------------------------
 {{ brief.insight }}
+{% endif %}
 
---
-Bu bülten Sinyra Labs tarafından otomatik üretilmiştir.
+
+--------------------------------------------------
+📢 Arkadaşlarına önermek ister misin?
+Başvuru formu: https://forms.gle/mWKvXgTJbZNVwHKk9
+
+Bu maili almak istemiyorsan ya da geri bildirim için
+Bilal'e ulaşabilirsin: bilalabic78@gmail.com
