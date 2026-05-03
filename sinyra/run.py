@@ -9,11 +9,11 @@ import structlog
 from sinyra import config
 from sinyra.delivery.email.send import send_brief
 from sinyra.ingest.google_news import fetch_gnews
+from sinyra.ingest.recipients import load_recipients
 from sinyra.ingest.rss import fetch_all as fetch_rss
 from sinyra.intelligence.classifier import classify
 from sinyra.intelligence.impact_scorer import score
 from sinyra.normalize.schema import ClassifiedFeature, ImpactResult, RawItem
-from sinyra.ingest.recipients import load_recipients
 from sinyra.storage.memory import SeenStore
 from sinyra.synthesis.brief import generate_daily_brief
 

@@ -9,8 +9,8 @@ from sinyra import config
 
 log = structlog.get_logger()
 
-_EMAIL_COL = 1   # "E-posta adresin?" column index
-_AKTIF_COL = 6   # "AKTİF Mİ?" column index
+_EMAIL_COL = 1  # "E-posta adresin?" column index
+_AKTIF_COL = 6  # "AKTİF Mİ?" column index
 
 
 def _from_sheet(sheet_id: str, gid: int, creds_json: str) -> list[str]:
@@ -31,7 +31,7 @@ def _from_sheet(sheet_id: str, gid: int, creds_json: str) -> list[str]:
         if len(row) <= _EMAIL_COL:
             continue
         email = row[_EMAIL_COL].strip()
-        aktif = (row[_AKTIF_COL].strip().upper() if len(row) > _AKTIF_COL else "")
+        aktif = row[_AKTIF_COL].strip().upper() if len(row) > _AKTIF_COL else ""
         if email and aktif != "HAYIR":
             emails.append(email)
 
