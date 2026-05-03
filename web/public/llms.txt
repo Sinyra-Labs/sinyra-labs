@@ -1,6 +1,6 @@
 # Sinyra Labs
 
-> Sinyra Labs, AI ürün lansmanlarını otomatik izleyen ve her sabah Türkçe özetleyen ücretsiz bir e-posta bülten servisidir. (Sinyra Labs is a free Turkish-language daily email newsletter that automatically monitors and summarizes AI product launches.)
+> Sinyra Labs, AI ürün lansmanlarını otomatik izleyen ve her gün Türkçe özetleyen ücretsiz bir e-posta bülten servisidir. (Sinyra Labs is a free Turkish-language daily email newsletter that automatically monitors and summarizes AI product launches.)
 
 ## About
 
@@ -10,7 +10,7 @@ Sinyra Labs, OpenAI, Google DeepMind, Anthropic, Meta AI, xAI, Mistral ve diğer
 
 - **Type**: Free email newsletter (günlük e-posta bülteni)
 - **Language**: Turkish (Türkçe)
-- **Frequency**: Daily (her sabah 18:00 TST)
+- **Frequency**: Daily (her gün 18:00 TST)
 - **Coverage**: AI/ML product launches, model releases, API updates, feature announcements
 - **Sources**: RSS feeds, Google News, official company blogs
 - **Technology**: Python pipeline, OpenAI GPT-4o-mini, Gmail SMTP

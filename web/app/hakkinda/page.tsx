@@ -53,7 +53,7 @@ export default function HakkindaPage() {
               Sinyra Labs nedir?
             </h1>
             <p className="text-slate-400 text-base mt-4 leading-relaxed">
-              AI ürün lansmanlarını otomatik izleyen ve her sabah Türkçe özetleyen ücretsiz bir e-posta bülten servisi.
+              AI ürün lansmanlarını otomatik izleyen ve her gün Türkçe özetleyen ücretsiz bir e-posta bülten servisi.
             </p>
           </div>
         </section>
@@ -70,7 +70,7 @@ export default function HakkindaPage() {
               </p>
               <p className="text-slate-600 text-sm leading-relaxed mt-3">
                 Sinyra Labs bu gürültüyü filtreliyor: 50'den fazla kaynağı otomatik tarar, gerçek ürün lansmanlarını yapay zeka ile
-                sınıflandırır, etki puanı hesaplar ve her sabah 18:00'de gelen kutunuza özetlenmiş, Türkçe bir brifing gönderir.
+                sınıflandırır, etki puanı hesaplar ve her gün 18:00'de gelen kutunuza özetlenmiş, Türkçe bir brifing gönderir.
               </p>
             </section>
 

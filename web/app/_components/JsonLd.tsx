@@ -26,7 +26,7 @@ const service = {
   "@id": `${SITE_URL}/#service`,
   name: "Sinyra Labs Günlük AI Brifing",
   description:
-    "AI ürün lansmanlarını izleyen ve her sabah Türkçe özetleyen ücretsiz e-posta bülten servisi.",
+    "AI ürün lansmanlarını izleyen ve her gün 18:00'de Türkçe özetleyen ücretsiz e-posta bülten servisi.",
   provider: { "@id": `${SITE_URL}/#organization` },
   serviceType: "Email Newsletter",
   audience: {

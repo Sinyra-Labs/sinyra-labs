@@ -276,7 +276,7 @@ export default function HomePage() {
             <div className="text-center mb-10">
               <p className="text-brand-yellow text-xs font-bold tracking-widest uppercase mb-3">Örnek Brifing</p>
               <h2 id="sample-heading" className="text-white text-2xl font-bold">
-                Her sabah böyle bir e-posta gelir
+                Her gün 18:00&apos;de böyle bir e-posta gelir
               </h2>
             </div>
 

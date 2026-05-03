@@ -54,7 +54,7 @@ export default function OGImage() {
             Günlük AI ürün lansmanı zekası — gürültüsüz, Türkçe.
           </span>
           <div style={{ display: "flex", gap: 12 }}>
-            {["50+ Kaynak", "GPT Sınıflandırma", "Her sabah 18:00"].map((t) => (
+            {["50+ Kaynak", "GPT Sınıflandırma", "Her gün 18:00"].map((t) => (
               <span
                 key={t}
                 style={{
