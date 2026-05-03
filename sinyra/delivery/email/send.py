@@ -11,7 +11,7 @@ from sinyra.synthesis.brief import DailyBrief
 
 logger = logging.getLogger(__name__)
 
-_SUBJECT = "🧠 Günlük AI Ürün Radarı | Sinyra Labs"
+_SUBJECT = "🧠 Sinyra Labs · AI Brifing"
 
 
 class SendStats(BaseModel):
