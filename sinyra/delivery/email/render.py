@@ -1,7 +1,7 @@
 """Render DailyBrief to HTML and plain-text via Jinja2."""
 
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
@@ -115,7 +115,7 @@ def render_preview(output_path: str) -> None:
         ),
     ]
 
-    now = datetime.now(tz=timezone.utc)
+    now = datetime.now(tz=UTC)
     from sinyra.delivery.email.helpers import get_day_name_tr
 
     by_company = _group_by_company(sample_features)

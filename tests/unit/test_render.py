@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from sinyra.delivery.email.render import render_html, render_text
 from sinyra.delivery.email.helpers import get_day_name_tr
+from sinyra.delivery.email.render import render_html, render_text
 from sinyra.normalize.schema import ClassifiedFeature, ImpactResult, RawItem
 from sinyra.synthesis.brief import DailyBrief
 
@@ -55,7 +55,9 @@ def _make_brief() -> DailyBrief:
     by_company: dict = defaultdict(list)
     for f in _SAMPLE_FEATURES:
         by_company[f.feature.raw.hint_company or "Diğer"].append(f)
-    by_company = dict(sorted(by_company.items(), key=lambda kv: max(x.impact_score for x in kv[1]), reverse=True))
+    by_company = dict(
+        sorted(by_company.items(), key=lambda kv: max(x.impact_score for x in kv[1]), reverse=True)
+    )
 
     return DailyBrief(
         date_tr="3 Mayıs 2026",

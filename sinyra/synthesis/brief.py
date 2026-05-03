@@ -1,8 +1,7 @@
 """Daily executive brief generator."""
 
-import json
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import structlog
@@ -85,7 +84,7 @@ def generate_daily_brief(features: list[ImpactResult]) -> DailyBrief:
     features_sorted = sorted(features, key=lambda f: f.impact_score, reverse=True)
     by_company = _group_by_company(features_sorted)
 
-    now = datetime.now(tz=timezone.utc)
+    now = datetime.now(tz=UTC)
     date_tr = now.strftime("%-d %B %Y") if hasattr(now, "strftime") else now.strftime("%d %B %Y")
     # strftime %-d is Linux only; use lstrip on Windows
     date_tr = str(now.day) + now.strftime(" %B %Y")
@@ -93,7 +92,11 @@ def generate_daily_brief(features: list[ImpactResult]) -> DailyBrief:
     time_str = now.strftime("%H:%M")
 
     unique_companies = len(by_company)
-    avg_impact = int(sum(f.impact_score for f in features_sorted) / len(features_sorted)) if features_sorted else 0
+    avg_impact = (
+        int(sum(f.impact_score for f in features_sorted) / len(features_sorted))
+        if features_sorted
+        else 0
+    )
 
     if not features_sorted:
         log.info("synthesis.brief.empty")

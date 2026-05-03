@@ -2,7 +2,6 @@
 
 import os
 
-
 # --- LLM ---
 OPENAI_API_KEY: str = os.environ.get("OPENAI_API_KEY", "")
 OPENAI_MODEL: str = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
@@ -22,9 +21,7 @@ GMAIL_ADDRESS: str = os.environ.get("GMAIL_ADDRESS", "")
 GMAIL_APP_PASSWORD: str = os.environ.get("GMAIL_APP_PASSWORD", "")
 EMAIL_FROM_NAME: str = os.environ.get("EMAIL_FROM_NAME", "AI Ürün Radarı")
 EMAIL_TO: list[str] = [
-    addr.strip()
-    for addr in os.environ.get("EMAIL_TO", "").split(",")
-    if addr.strip()
+    addr.strip() for addr in os.environ.get("EMAIL_TO", "").split(",") if addr.strip()
 ]
 EMAIL_PROVIDER: str = os.environ.get("EMAIL_PROVIDER", "gmail_smtp")
 

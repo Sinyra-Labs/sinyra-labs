@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+
 # Load .env from repo root if it exists — mevcut env değerlerini ezmez.
 def _load_dotenv() -> None:
     env_file = Path(__file__).parent.parent / ".env"
@@ -16,6 +17,7 @@ def _load_dotenv() -> None:
             continue
         key, _, value = line.partition("=")
         os.environ.setdefault(key.strip(), value.strip())
+
 
 _load_dotenv()
 

@@ -72,7 +72,9 @@ def _dedup(items: list[RawItem], store: SeenStore) -> list[RawItem]:
 
 def _classify_all(items: list[RawItem]) -> list[ClassifiedFeature]:
     results: list[ClassifiedFeature] = []
-    for idx, item in enumerate(items[: config.MAX_CLASSIFY if hasattr(config, "MAX_CLASSIFY") else 100]):
+    for idx, item in enumerate(
+        items[: config.MAX_CLASSIFY if hasattr(config, "MAX_CLASSIFY") else 100]
+    ):
         try:
             cf = classify(item)
             results.append(cf)
