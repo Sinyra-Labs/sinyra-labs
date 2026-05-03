@@ -880,7 +880,6 @@ Sayfalar:
 - / : hero ("Cut Through the Noise"), bugünkü brief preview, signup form (Resend
   audience'a ekleme), son 7 günün top-5 feature'ı
 - /archive: geçmiş briefler (DB'den okur)
-- /trends: 30 günlük trend cluster'ları
 
 Stack:
 - Next.js 15 + Tailwind + shadcn/ui
@@ -936,6 +935,19 @@ Always:
   commit messages in English.
 ```
 
+AI Haberleri İsteyenler diye bir tane dökümanım var oradan gönderilecek kişiler çekilecek. 
+Zaman damgası	E-posta adresin?	Adın ne?  	Neyle ilgileniyorsun?  	AI Ürün Radarı'nı nereden duydun?  	Eklemek istediğin bir şey var mı?  	AKTİF Mİ?
+22.04.2026 13:03:54	bilalabic78@gmail.com	Bilal ABİÇ	Yazılım geliştirme			EVET
+22.04.2026 16:34:43	boze8445@gmail.com	Efe Boz	Yazılım geliştirme, Tasarım, Öğrenci			EVET
+22.04.2026 16:51:57	aribaskagan@gmail.com	Kağan	AI, Oyun Geliştirme 	Bilal		EVET
+22.04.2026 16:52:46	yilmazatakan4423@gmail.com	Atakan Yılmaz	Araştırma / akademi, Yapay Zeka	Arkadaşlarım önerdi.	Elinize sağlık	EVET
+22.04.2026 16:58:29	firat9041@gmail.com	Fırat Yunus Yaşaroğlu 	Yazılım geliştirme			EVET
+22.04.2026 17:00:57	caaner.gulerr@gmail.com	Caner Güler	Yazılım geliştirme, Öğrenci	Whatsapp	Yok	EVET
+22.04.2026 17:29:32	berzanbaran.1808@gmail.com	Berzan	Yazılım geliştirme, Ürün yönetimi / girişimcilik, Araştırma / akademi, Tasarım, Öğrenci, AI	Sosyal Medya	Şimdiden teşekkür ederim	EVET
+22.04.2026 18:10:17	bilbildilara77@gmail.com	Dilara Bilişik	Yazılım geliştirme, Öğrenci, ai 	Bilal abiç'ten	Gayet güzel biraz düşüneyim daha ne eklenebilir aklıma gelirse tarafımça bilal abiçe ulaştırım.	EVET
+22.04.2026 18:33:52	akhan.omer13@gmail.com	Ömer	Yazılım geliştirme, Öğrenci	Arkadaştan	Yok	EVET
+23.04.2026 00:16:51	whodenur@gmail.com	Sudenur Öztürk	Yazılım geliştirme, Öğrenci	Arkadaş	Teşekkürler	EVET
+29.04.2026 17:44:00	alisanytmz21@gmail.com	Alişan Yatmaz	Yazılım geliştirme	Arkadaşımdan		EVET yapısı bu şekilde evet ve boş olanlara mail gönderimi yapılıyor hayır olanlar atlanıyor.https://docs.google.com/spreadsheets/d/164XhD-ff7OcGIAVjjW8J-AlBFuo81b9UpYeJP8pqMLc/edit?gid=250054505#gid=250054505 buda linki ama şuanda erişemeyebilirsin çünkü gizlide o yüzden yetki ile ilerlemeiz gerekir.
 ---
 
 ## 9. İlk 7 Günlük Aksiyon Planı

@@ -25,6 +25,11 @@ EMAIL_TO: list[str] = [
 ]
 EMAIL_PROVIDER: str = os.environ.get("EMAIL_PROVIDER", "gmail_smtp")
 
+# --- Google Sheets recipient list ---
+GSHEET_ID: str = os.environ.get("GSHEET_ID", "")
+GSHEET_GID: int = int(os.environ.get("GSHEET_GID", "250054505"))
+GOOGLE_CREDENTIALS_JSON: str = os.environ.get("GOOGLE_CREDENTIALS_JSON", "")
+
 # --- Active prompt versions ---
 CLASSIFY_PROMPT_VERSION: str = os.environ.get("CLASSIFY_PROMPT_VERSION", "v2")
 IMPACT_PROMPT_VERSION: str = os.environ.get("IMPACT_PROMPT_VERSION", "v2")

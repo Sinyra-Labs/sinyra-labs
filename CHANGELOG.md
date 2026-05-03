@@ -8,6 +8,16 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- `sinyra/ingest/recipients.py`: Google Sheets alıcı listesi okuyucu
+  - `load_recipients()` → AKTİF Mİ?=="EVET" veya boş satırları filtreler, HAYIR'ları atlar
+  - `GSHEET_ID` + `GSHEET_GID` + `GOOGLE_CREDENTIALS_JSON` yapılandırılmazsa `EMAIL_TO` yedek olarak kullanılır
+  - Yeni bağımlılıklar: `gspread>=6.1`, `google-auth>=2.29`
+- `web/`: Next.js 15 landing page (app router, Tailwind, Server Components)
+  - `/`: hero, today's brief preview, top-5 last 7 days, signup form
+  - `/archive`: paginated past briefs list
+  - Server Action signup via Resend Contacts API (audience management, not email sending)
+  - Supabase read-only client for `briefs` + `top_features` tables
+  - `web/supabase-schema.sql`: table definitions + RLS policies for public read
 - `classify.v2.md`: new classifier prompt with negative-first evaluation order
   - Expanded investment keywords: "invests", "investment", "Series A-F", "seed round", "backed by"
   - Explicit clarification: "research investment ≠ research release"

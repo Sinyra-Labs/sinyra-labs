@@ -13,6 +13,7 @@ from sinyra.ingest.rss import fetch_all as fetch_rss
 from sinyra.intelligence.classifier import classify
 from sinyra.intelligence.impact_scorer import score
 from sinyra.normalize.schema import ClassifiedFeature, ImpactResult, RawItem
+from sinyra.ingest.recipients import load_recipients
 from sinyra.storage.memory import SeenStore
 from sinyra.synthesis.brief import generate_daily_brief
 
@@ -130,11 +131,12 @@ def main() -> None:
     scored = _score_all(features)
 
     brief = generate_daily_brief(scored)
+    recipients = load_recipients()
 
     if config.DRY_RUN:
-        log.info("pipeline.dry_run", recipients=config.EMAIL_TO)
+        log.info("pipeline.dry_run", recipients=recipients)
     else:
-        stats = send_brief(brief, config.EMAIL_TO)
+        stats = send_brief(brief, recipients)
         log.info(
             "pipeline.email_done",
             attempted=stats.attempted,
