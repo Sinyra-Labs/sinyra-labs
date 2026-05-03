@@ -75,7 +75,7 @@ def _make_brief() -> DailyBrief:
 def test_render_html_contains_key_elements():
     brief = _make_brief()
     html = render_html(brief)
-    assert "AI ÜRÜN RADARI" in html
+    assert "SINYRA LABS" in html
     assert "Gemini 3.1 Flash-Lite" in html
     assert "GPT-Rosalind" in html
     assert "GÜNÜN ÖNE ÇIKAN GELİŞMESİ" in html
@@ -87,7 +87,7 @@ def test_render_html_contains_key_elements():
 def test_render_text_contains_key_elements():
     brief = _make_brief()
     text = render_text(brief)
-    assert "AI ÜRÜN RADARI" in text
+    assert "SINYRA LABS" in text
     assert "Gemini 3.1 Flash-Lite" in text
     assert "TRENDLER" in text
     assert "bilalabic78@gmail.com" in text

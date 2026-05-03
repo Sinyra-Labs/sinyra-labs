@@ -1,4 +1,4 @@
-AI ÜRÜN RADARI — {{ brief.date_tr }}
+SINYRA LABS — {{ brief.date_tr }}
 ==================================================
 
 {{ brief.summary_tr }}
@@ -40,3 +40,4 @@ Başvuru formu: https://forms.gle/mWKvXgTJbZNVwHKk9
 
 Bu maili almak istemiyorsan ya da geri bildirim için
 Bilal'e ulaşabilirsin: bilalabic78@gmail.com
+github.com/Sinyra-Labs/ · Sinyra Labs tarafından üretildi

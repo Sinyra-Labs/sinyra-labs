@@ -8,30 +8,36 @@
 
 feeds:
   # ── Major AI labs ──────────────────────────────────────────────────────────
-  - name: OpenAI Blog
-    url: https://openai.com/blog/rss/
+  # OpenAI: /blog/rss/ → 403 after site redesign; moved to /news/rss.xml
+  - name: OpenAI News
+    url: https://openai.com/news/rss.xml
     type: rss
     company: openai
 
+  # Anthropic: no native RSS; using Olshansk/rss-feeds scraped proxy (updated hourly)
   - name: Anthropic News
-    url: https://www.anthropic.com/news/rss
+    url: https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml
     type: rss
     company: anthropic
 
+  - name: Anthropic Engineering
+    url: https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_engineering.xml
+    type: rss
+    company: anthropic
+
+  # DeepMind: /blog/rss/ → 404; correct path is /blog/rss.xml
   - name: Google DeepMind Blog
-    url: https://deepmind.google/blog/rss/
+    url: https://deepmind.google/blog/rss.xml
     type: rss
     company: google-deepmind
 
+  # Meta AI: no native RSS; using Olshansk/rss-feeds scraped proxy
   - name: Meta AI Blog
-    url: https://ai.meta.com/blog/feed/
+    url: https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_meta_ai.xml
     type: rss
     company: meta
 
-  - name: Mistral AI Blog
-    url: https://mistral.ai/feed.xml
-    type: rss
-    company: mistral
+  # Mistral: no native RSS feed → replaced with Google News query below
 
   # ── Tech news ───────────────────────────────────────────────────────────────
   - name: TechCrunch AI
@@ -63,3 +69,9 @@ feeds:
   - name: GNews · open source LLM
     query: open source large language model release
     type: gnews
+
+  # Mistral has no native RSS feed
+  - name: GNews · Mistral AI
+    query: Mistral AI release OR model OR update
+    type: gnews
+    company: mistral

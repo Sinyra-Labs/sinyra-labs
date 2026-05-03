@@ -7,6 +7,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+- `feeds.yaml`: 5 broken feed URLs corrected
+  - OpenAI: `/blog/rss/` (403) → `/news/rss.xml` (site yeniden tasarım sonrası taşındı)
+  - Anthropic: native RSS yok → `Olshansk/rss-feeds` proxy: `feed_anthropic_news.xml` + `feed_anthropic_engineering.xml` eklendi
+  - DeepMind: `/blog/rss/` (404) → `/blog/rss.xml`
+  - Meta AI: native RSS yok → `Olshansk/rss-feeds` proxy: `feed_meta_ai.xml`
+  - Mistral: native RSS yok, RSS entry kaldırıldı → `GNews · Mistral AI` sorgusuyla değiştirildi
+
 ### Added
 - P6 GitHub Actions workflows corrected and completed:
   - `daily-pipeline.yml`: cron fixed to `0 15 * * *` (TR 18:00 = UTC 15:00), `contents: write` removed, `EMAIL_PROVIDER`/`DB_PATH` env vars added, failure notification URL enriched

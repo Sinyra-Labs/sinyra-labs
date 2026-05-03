@@ -57,6 +57,11 @@ def _call_llm(features: list[ImpactResult]) -> _BriefLLMOutput:
             ' "insight": "1 cümle stratejik içgörü Türkçe"}',
             "",
             "Stil: kısa, net, abartısız, profesyonel Türkçe. Klişe kaçın.",
+            "",
+            "DİL KURALLARI:",
+            "- Teknik kısaltmaları ÇEVIRME: AI, API, LLM, SDK, GPU, ML → olduğu gibi yaz.",
+            "- Ürün/marka adlarını çevirme: ChatGPT, Gemini, Claude, Copilot, Grok → olduğu gibi.",
+            "- 'YZ', 'MÖ' gibi Türkçe karşılıklar YASAK.",
         ]
     )
     bullets = "\n".join(
