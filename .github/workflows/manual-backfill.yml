@@ -37,15 +37,18 @@ jobs:
 
       - name: Run backfill
         env:
-          OPENAI_API_KEY:     ${{ secrets.OPENAI_API_KEY }}
-          GMAIL_ADDRESS:      ${{ secrets.GMAIL_ADDRESS }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          EMAIL_FROM_NAME:    ${{ secrets.EMAIL_FROM_NAME }}
-          EMAIL_TO:           ${{ secrets.EMAIL_TO }}
-          EMAIL_PROVIDER:     gmail_smtp
-          DRY_RUN:            ${{ github.event.inputs.dry_run }}
-          LOOKBACK_HOURS:     ${{ github.event.inputs.lookback_hours }}
-          DB_PATH:            data/sinyra.db
+          OPENAI_API_KEY:          ${{ secrets.OPENAI_API_KEY }}
+          GMAIL_ADDRESS:           ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD:      ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_FROM_NAME:         ${{ secrets.EMAIL_FROM_NAME }}
+          EMAIL_TO:                ${{ secrets.EMAIL_TO }}
+          EMAIL_PROVIDER:          gmail_smtp
+          GSHEET_ID:               ${{ secrets.GSHEET_ID }}
+          GSHEET_GID:              ${{ secrets.GSHEET_GID }}
+          GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+          DRY_RUN:                 ${{ github.event.inputs.dry_run }}
+          LOOKBACK_HOURS:          ${{ github.event.inputs.lookback_hours }}
+          DB_PATH:                 data/sinyra.db
         run: python -m sinyra.run
 
       - name: Upload artifacts
