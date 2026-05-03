@@ -53,9 +53,8 @@ class SeenStore:
     def _prune(self) -> None:
         cutoff = datetime.now(UTC) - timedelta(days=TTL_DAYS)
         with Session(self._engine) as session:
-            deleted = session.execute(
-                delete(SeenItem).where(SeenItem.last_seen_at < cutoff)
-            ).rowcount
+            result = session.execute(delete(SeenItem).where(SeenItem.last_seen_at < cutoff))
+            deleted: int = result.rowcount  # type: ignore[attr-defined]
             session.commit()
         if deleted:
             log.info("seen_store.pruned", count=deleted, ttl_days=TTL_DAYS)

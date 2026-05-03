@@ -35,7 +35,7 @@ def _parse_date(entry: Any) -> datetime | None:
     if parsed is None:
         return None
     try:
-        return datetime(*parsed[:6], tzinfo=UTC)
+        return datetime(*parsed[:6], tzinfo=UTC)  # type: ignore[misc]
     except (ValueError, TypeError):
         return None
 

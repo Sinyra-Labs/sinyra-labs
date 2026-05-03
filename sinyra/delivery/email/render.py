@@ -41,7 +41,7 @@ def _group_by_company(features: list[ImpactResult]) -> dict[str, list[ImpactResu
     )
 
 
-def _build_context(brief: DailyBrief) -> dict:
+def _build_context(brief: DailyBrief) -> dict[str, object]:
     return {
         "brief": brief,
     }

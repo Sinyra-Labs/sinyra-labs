@@ -5,6 +5,7 @@ import logging
 from pydantic import BaseModel
 
 from sinyra import config
+from sinyra.delivery.email.provider import EmailProvider
 from sinyra.delivery.email.render import render_html, render_text
 from sinyra.synthesis.brief import DailyBrief
 
@@ -19,7 +20,7 @@ class SendStats(BaseModel):
     failed: int
 
 
-def _get_provider():
+def _get_provider() -> EmailProvider:
     provider_name = config.EMAIL_PROVIDER
     if provider_name == "gmail_smtp":
         from sinyra.delivery.email.gmail_smtp import GmailSmtpProvider
