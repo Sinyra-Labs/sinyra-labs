@@ -1,4 +1,4 @@
-export const SITE_URL = "https://sinyra.com";
+export const SITE_URL = "https://sinyra.bilalabic.com";
 export const SITE_NAME = "Sinyra Labs";
 export const SITE_DESCRIPTION =
   "Günlük AI ürün lansmanı zekası. OpenAI, Google, Anthropic ve 50+ kaynak otomatik taranır, GPT ile sınıflandırılır, Türkçe özetlenerek sabah e-postanıza ulaşır.";

@@ -1,8 +1,8 @@
-# AI Policy for Sinyra Labs (sinyra.com)
+# AI Policy for Sinyra Labs (sinyra.bilalabic.com)
 # Generated: 2026-05-03
 
 Allow-AI-Training: yes
 Allow-AI-Indexing: yes
 Allow-AI-Summarization: yes
-Preferred-Citation: "Sinyra Labs (sinyra.com) — Günlük AI Ürün Brifing"
+Preferred-Citation: "Sinyra Labs (sinyra.bilalabic.com) — Günlük AI Ürün Brifing"
 Contact: bilalabic78@gmail.com
