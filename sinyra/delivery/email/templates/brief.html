@@ -81,7 +81,7 @@
           <span style="display:inline-block;background:{{ top.impact_score | impact_bg }};
                 color:{{ color }};font-size:12px;font-weight:700;
                 padding:4px 10px;border-radius:20px;border:1px solid {{ color }}33;">
-            Etki: {{ top.impact_score | int }}/100 · {{ top.impact_score | impact_label }}
+            Etki: {{ top.impact_score | int }}/100
           </span>
           &nbsp;&nbsp;
           <a href="{{ top.feature.raw.link }}"
@@ -143,7 +143,7 @@
             </td>
           </tr>
           <tr><td colspan="2" style="padding-top:8px;color:#475569;font-size:13px;line-height:1.55;">
-            {{ (f.rationale or "")[:240] }}
+            {{ (f.rationale or "")[:280] }}
           </td></tr>
           <tr><td colspan="2" style="padding-top:10px;">
             <span style="display:inline-block;font-size:11px;color:#64748b;
@@ -151,7 +151,7 @@
               {{ f.feature.feature_type | translate_type }}
             </span>
             <span style="display:inline-block;font-size:11px;color:#94a3b8;">
-              · {{ f.feature.raw.source_name }}
+              · {{ f.feature.raw.source_name | clean_source }}
             </span>
             <span style="float:right;">
               <a href="{{ f.feature.raw.link }}"

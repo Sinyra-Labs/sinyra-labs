@@ -1,5 +1,7 @@
 """Template helpers ported from Apps Script (escape, impactColor, etc.)."""
 
+import re
+
 COMPANY_EMOJI: dict[str, str] = {
     "OpenAI": "🟢",
     "Google": "🔵",
@@ -82,3 +84,19 @@ def get_day_name_tr(weekday: int) -> str:
 
 def company_emoji(company: str) -> str:
     return COMPANY_EMOJI.get(company, "🏢")
+
+
+_TLD_RE = re.compile(
+    r"^(?:www\.)?(.+?)\.(com|org|net|io|ai|de|fr|co|uk|eu|app|dev|news|tech)(/.*)?$",
+    re.IGNORECASE,
+)
+
+
+def clean_source(name: str) -> str:
+    """Convert domain-style source names (the-decoder.com) to readable form (The Decoder)."""
+    m = _TLD_RE.match(name.strip())
+    if not m:
+        return name
+    slug = m.group(1)
+    slug = slug.replace("-", " ").replace("_", " ")
+    return slug.strip().title()

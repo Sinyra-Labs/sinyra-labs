@@ -7,6 +7,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
 from sinyra.delivery.email.helpers import (
+    clean_source,
     company_emoji,
     impact_bg,
     impact_color,
@@ -28,6 +29,7 @@ _env.filters["impact_bg"] = impact_bg
 _env.filters["impact_label"] = impact_label
 _env.filters["translate_type"] = translate_type
 _env.filters["company_emoji"] = company_emoji
+_env.filters["clean_source"] = clean_source
 
 
 def _group_by_company(features: list[ImpactResult]) -> dict[str, list[ImpactResult]]:
