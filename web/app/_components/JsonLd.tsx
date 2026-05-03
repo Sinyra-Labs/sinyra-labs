@@ -55,7 +55,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Brifing ne zaman gönderilir?",
-    a: "Her gün Türkiye saatiyle 18:00'de (UTC 15:00) e-posta olarak gönderilir.",
+    a: "Her gün saat 18:00'de e-posta olarak gönderilir.",
   },
   {
     q: "Hangi AI kaynaklarını izliyor?",

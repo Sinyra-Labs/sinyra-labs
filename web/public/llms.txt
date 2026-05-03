@@ -10,7 +10,7 @@ Sinyra Labs, OpenAI, Google DeepMind, Anthropic, Meta AI, xAI, Mistral ve diğer
 
 - **Type**: Free email newsletter (günlük e-posta bülteni)
 - **Language**: Turkish (Türkçe)
-- **Frequency**: Daily (her gün 18:00 TST)
+- **Frequency**: Daily (her gün 18:00)
 - **Coverage**: AI/ML product launches, model releases, API updates, feature announcements
 - **Sources**: RSS feeds, Google News, official company blogs
 - **Technology**: Python pipeline, OpenAI GPT-4o-mini, Gmail SMTP
@@ -33,7 +33,7 @@ Sinyra Labs, OpenAI, Google, Anthropic gibi AI şirketlerinin ürün lansmanlar�
 Tamamen ücretsizdir. Kredi kartı veya ödeme bilgisi gerekmez.
 
 **Ne zaman gönderilir?**
-Her gün Türkiye saatiyle 18:00'de (UTC 15:00).
+Her gün saat 18:00'de.
 
 **Abonelik nasıl iptal edilir?**
 bilalabic78@gmail.com adresine e-posta göndererek istediğiniz zaman iptal edebilirsiniz.

@@ -228,7 +228,7 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-slate-700/60 text-center">
             {[
               { v: "50+", l: "AI Kaynağı" },
-              { v: "Her Gün", l: "18:00 TST" },
+              { v: "Her Gün", l: "Saat 18:00" },
               { v: "0₺", l: "Tamamen Ücretsiz" },
             ].map(({ v, l }) => (
               <div key={l} className="px-6 py-2">
@@ -248,7 +248,7 @@ export default function HomePage() {
                 Nasıl çalışır?
               </h2>
               <p className="text-slate-500 text-sm mt-3 max-w-md mx-auto">
-                Tamamen otomatik — her gün UTC 15:00&apos;de başlar, siz kahvenizi içerken biter.
+                Tamamen otomatik — siz akşam çayınızı içerken brifing gelen kutunuza düşer.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">

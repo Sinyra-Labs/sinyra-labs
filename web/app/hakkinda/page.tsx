@@ -78,7 +78,7 @@ export default function HakkindaPage() {
             <section aria-labelledby="how-heading">
               <h2 id="how-heading" className="text-slate-800 font-bold text-lg mb-3">Teknik yapı</h2>
               <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                Pipeline GitHub Actions üzerinde her gün UTC 15:00'de (Türkiye 18:00) çalışır:
+                Pipeline GitHub Actions üzerinde her gün otomatik çalışır, brifing saat 18:00'de gelen kutunuza ulaşır:
               </p>
               <ol className="space-y-3 text-sm text-slate-600">
                 {[
