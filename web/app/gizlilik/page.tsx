@@ -2,16 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "../_components/Navbar";
 import { Footer } from "../_components/Footer";
-import { CONTACT_EMAIL } from "@/lib/constants";
+import { PageJsonLd } from "../_components/JsonLd";
+import { CONTACT_EMAIL, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Gizlilik Politikası — Sinyra Labs",
+  title: "Gizlilik Politikası",
+  description: "Sinyra Labs gizlilik politikası — hangi veriler toplanır, nasıl kullanılır.",
+  alternates: { canonical: `${SITE_URL}/gizlilik` },
+  robots: { index: true, follow: false },
 };
 
 const LAST_UPDATED = "3 Mayıs 2026";
 
 export default function GizlilikPage() {
   return (
+    <>
+      <PageJsonLd path="/gizlilik" name="Gizlilik Politikası — Sinyra Labs" description="Sinyra Labs gizlilik politikası." />
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
@@ -66,6 +72,7 @@ export default function GizlilikPage() {
 
       <Footer />
     </div>
+    </>
   );
 }
 

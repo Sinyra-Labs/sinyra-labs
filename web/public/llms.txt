@@ -1,0 +1,52 @@
+# Sinyra Labs
+
+> Sinyra Labs, AI ürün lansmanlarını otomatik izleyen ve her sabah Türkçe özetleyen ücretsiz bir e-posta bülten servisidir. (Sinyra Labs is a free Turkish-language daily email newsletter that automatically monitors and summarizes AI product launches.)
+
+## About
+
+Sinyra Labs, OpenAI, Google DeepMind, Anthropic, Meta AI, xAI, Mistral ve diğer 50'den fazla AI şirketinin blog yazılarını, RSS beslemelerini ve haber akışlarını her gün otomatik olarak tarar. GPT-4o-mini kullanarak her haberi sınıflandırır (gerçek ürün lansmanı mı değil mi), etki puanı (0-100) hesaplar ve en önemli gelişmeleri kısa Türkçe rationale ile birlikte sunar.
+
+## Service Description
+
+- **Type**: Free email newsletter (günlük e-posta bülteni)
+- **Language**: Turkish (Türkçe)
+- **Frequency**: Daily (her sabah 18:00 TST)
+- **Coverage**: AI/ML product launches, model releases, API updates, feature announcements
+- **Sources**: RSS feeds, Google News, official company blogs
+- **Technology**: Python pipeline, OpenAI GPT-4o-mini, Gmail SMTP
+
+## Who is it for?
+
+Turkish-speaking software developers, product managers, AI researchers, and entrepreneurs who want to stay current with the AI product landscape without spending time on news aggregation.
+
+## Subscription
+
+Free subscription via Google Forms: https://forms.gle/mWKvXgTJbZNVwHKk9
+Contact: bilalabic78@gmail.com
+
+## Frequently Asked Questions
+
+**Sinyra Labs nedir?**
+Sinyra Labs, OpenAI, Google, Anthropic gibi AI şirketlerinin ürün lansmanlarını her gün otomatik olarak izleyen ve Türkçe özetleyen ücretsiz bir e-posta bülten servisidir.
+
+**Ücretli mi?**
+Tamamen ücretsizdir. Kredi kartı veya ödeme bilgisi gerekmez.
+
+**Ne zaman gönderilir?**
+Her gün Türkiye saatiyle 18:00'de (UTC 15:00).
+
+**Abonelik nasıl iptal edilir?**
+bilalabic78@gmail.com adresine e-posta göndererek istediğiniz zaman iptal edebilirsiniz.
+
+**Hangi kaynakları izliyor?**
+OpenAI Blog, Google DeepMind Blog, Anthropic News, Meta AI Blog, Hugging Face, Vercel AI SDK, GitHub Copilot, AWS Machine Learning, Microsoft Azure AI ve Google Cloud AI dahil 50'den fazla kaynak.
+
+## Creator
+
+Bilal Abiç — bilalabic78@gmail.com
+GitHub: https://github.com/Sinyra-Labs/
+
+## Legal
+
+Privacy Policy: https://sinyra.com/gizlilik
+Terms of Use: https://sinyra.com/kullanim

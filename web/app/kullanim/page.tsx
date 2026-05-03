@@ -2,16 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "../_components/Navbar";
 import { Footer } from "../_components/Footer";
-import { CONTACT_EMAIL } from "@/lib/constants";
+import { PageJsonLd } from "../_components/JsonLd";
+import { CONTACT_EMAIL, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Kullanım Koşulları — Sinyra Labs",
+  title: "Kullanım Koşulları",
+  description: "Sinyra Labs kullanım koşulları — hizmet şartları ve sorumluluk sınırlaması.",
+  alternates: { canonical: `${SITE_URL}/kullanim` },
+  robots: { index: true, follow: false },
 };
 
 const LAST_UPDATED = "3 Mayıs 2026";
 
 export default function KullanimPage() {
   return (
+    <>
+      <PageJsonLd path="/kullanim" name="Kullanım Koşulları — Sinyra Labs" description="Sinyra Labs kullanım koşulları." />
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
@@ -63,6 +69,7 @@ export default function KullanimPage() {
 
       <Footer />
     </div>
+    </>
   );
 }
 
