@@ -15,10 +15,10 @@ _AKTIF_COL = 6  # "AKTİF Mİ?" column index
 
 def _from_sheet(sheet_id: str, gid: int, creds_json: str) -> list[str]:
     import gspread
-    from google.oauth2.service_account import Credentials  # type: ignore[import-untyped]
+    from google.oauth2.service_account import Credentials
 
     creds_dict: dict[str, object] = json.loads(creds_json)
-    creds = Credentials.from_service_account_info(
+    creds = Credentials.from_service_account_info(  # type: ignore[no-untyped-call]
         creds_dict,
         scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"],
     )
