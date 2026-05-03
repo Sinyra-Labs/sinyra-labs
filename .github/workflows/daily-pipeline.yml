@@ -2,8 +2,9 @@ name: Sinyra · Daily Intelligence Run
 
 on:
   schedule:
-    # UTC 15:00 = TR 18:00 (UTC+3). Buffer: 14:45 UTC to absorb GHA queue delay.
-    - cron: '45 14 * * *'
+    # TR 18:00 (UTC+3) = UTC 15:00. GHA queue typically adds 5-15 min,
+    # so actual mail delivery is ~18:15 TR — acceptable per spec.
+    - cron: '0 15 * * *'
   workflow_dispatch:
     inputs:
       lookback_hours:
@@ -23,8 +24,6 @@ jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 25
-    permissions:
-      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -38,7 +37,7 @@ jobs:
       - name: Install deps (uv)
         run: |
           pip install uv
-          uv pip install --system -r requirements.txt
+          uv pip install --system -e .
 
       - name: Restore seen-hashes cache
         uses: actions/cache@v4
@@ -49,13 +48,15 @@ jobs:
 
       - name: Run pipeline
         env:
-          OPENAI_API_KEY:      ${{ secrets.OPENAI_API_KEY }}
-          GMAIL_ADDRESS:       ${{ secrets.GMAIL_ADDRESS }}
-          GMAIL_APP_PASSWORD:  ${{ secrets.GMAIL_APP_PASSWORD }}
-          EMAIL_FROM_NAME:     ${{ secrets.EMAIL_FROM_NAME }}
-          EMAIL_TO:            ${{ secrets.EMAIL_TO }}
-          DRY_RUN:             ${{ github.event.inputs.dry_run || 'false' }}
-          LOOKBACK_HOURS:      ${{ github.event.inputs.lookback_hours || '72' }}
+          OPENAI_API_KEY:     ${{ secrets.OPENAI_API_KEY }}
+          GMAIL_ADDRESS:      ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_FROM_NAME:    ${{ secrets.EMAIL_FROM_NAME }}
+          EMAIL_TO:           ${{ secrets.EMAIL_TO }}
+          EMAIL_PROVIDER:     gmail_smtp
+          DRY_RUN:            ${{ github.event.inputs.dry_run || 'false' }}
+          LOOKBACK_HOURS:     ${{ github.event.inputs.lookback_hours || '72' }}
+          DB_PATH:            data/sinyra.db
         run: python -m sinyra.run
 
       - name: Upload run artifacts
@@ -76,5 +77,5 @@ jobs:
           if [ -n "$SLACK_WEBHOOK" ]; then
             curl -s -X POST "$SLACK_WEBHOOK" \
               -H 'Content-Type: application/json' \
-              -d "{\"text\":\"⚠️ Sinyra pipeline başarısız — Run #${{ github.run_id }}\"}"
+              -d "{\"text\":\"⚠️ Sinyra daily pipeline başarısız — Run #${{ github.run_id }} — https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"
           fi

@@ -33,7 +33,7 @@ jobs:
       - name: Install deps
         run: |
           pip install uv
-          uv pip install --system -r requirements.txt
+          uv pip install --system -e .
 
       - name: Run backfill
         env:
@@ -42,8 +42,10 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           EMAIL_FROM_NAME:    ${{ secrets.EMAIL_FROM_NAME }}
           EMAIL_TO:           ${{ secrets.EMAIL_TO }}
+          EMAIL_PROVIDER:     gmail_smtp
           DRY_RUN:            ${{ github.event.inputs.dry_run }}
           LOOKBACK_HOURS:     ${{ github.event.inputs.lookback_hours }}
+          DB_PATH:            data/sinyra.db
         run: python -m sinyra.run
 
       - name: Upload artifacts
@@ -51,5 +53,18 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: backfill-${{ github.run_id }}
-          path: data/output/
+          path: |
+            data/output/
+            data/logs/
           retention-days: 7
+
+      - name: Notify failure (Slack)
+        if: failure()
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            curl -s -X POST "$SLACK_WEBHOOK" \
+              -H 'Content-Type: application/json' \
+              -d "{\"text\":\"⚠️ Sinyra backfill başarısız (lookback=${{ github.event.inputs.lookback_hours }}h) — https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"
+          fi

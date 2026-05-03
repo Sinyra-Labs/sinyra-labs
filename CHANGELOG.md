@@ -8,6 +8,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- P6 GitHub Actions workflows corrected and completed:
+  - `daily-pipeline.yml`: cron fixed to `0 15 * * *` (TR 18:00 = UTC 15:00), `contents: write` removed, `EMAIL_PROVIDER`/`DB_PATH` env vars added, failure notification URL enriched
+  - `test.yml`: concurrency group added, install fixed (`-e .` + full dev deps incl. `types-*`), failure notification + artifact upload added
+  - `manual-backfill.yml`: failure notification step added, `EMAIL_PROVIDER`/`DB_PATH` env vars added
+  - `SECRETS_REQUIRED.md`: new — secret matrix per workflow, Gmail App Password setup guide, Slack webhook guide, `gh workflow run` test commands
+
 - P5 Synthesis + Email Delivery layer fully implemented:
   - `sinyra/synthesis/brief.py`: `generate_daily_brief()` — OpenAI call for TR summary/trends/insight, sorts by impact, groups by company
   - `sinyra/delivery/email/helpers.py`: `escape`, `impact_color`, `impact_bg`, `impact_label`, `translate_type`, `get_day_name_tr`, `company_emoji` ported from Apps Script

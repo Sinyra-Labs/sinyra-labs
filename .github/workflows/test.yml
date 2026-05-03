@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -23,8 +27,11 @@ jobs:
       - name: Install deps
         run: |
           pip install uv
-          uv pip install --system -r requirements.txt
-          uv pip install --system pytest pytest-recording vcrpy mypy ruff
+          uv pip install --system -e .
+          uv pip install --system \
+            pytest pytest-recording vcrpy \
+            mypy ruff \
+            types-Jinja2 types-PyYAML
 
       - name: Ruff lint
         run: ruff check sinyra/ tests/
@@ -37,3 +44,22 @@ jobs:
 
       - name: pytest (unit)
         run: pytest tests/unit/ -v
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ github.run_id }}
+          path: .pytest_cache/
+          retention-days: 7
+
+      - name: Notify failure (Slack)
+        if: failure()
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            curl -s -X POST "$SLACK_WEBHOOK" \
+              -H 'Content-Type: application/json' \
+              -d "{\"text\":\"❌ Sinyra test/lint başarısız — ${{ github.ref_name }} — https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"
+          fi
